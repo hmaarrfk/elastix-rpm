@@ -1,6 +1,6 @@
 Name:           elastix
 Version:        4.9.0
-Release:        4%{?dist}
+Release:        5%{?dist}
 Summary:        A toolbox for rigid and nonrigid registration of images.
 
 Group:          Applications/Engineering
@@ -79,10 +79,10 @@ sed 's@/builddir/build/BUILD/elastix-4.9.0/bin@'"%{_libdir}"'@' -i ElastixTarget
 %make_install
 
 mkdir -p %{buildroot}%{_libdir}/cmake/%{name}
-install ElastixConfig.cmake %{buildroot}%{_libdir}/cmake/%{name}
-install ElastixTargets.cmake %{buildroot}%{_libdir}/cmake/%{name}
-install UseElastix.cmake %{buildroot}%{_libdir}/cmake/%{name}
-install elxLibraryDepends.cmake %{buildroot}%{_libdir}/cmake/%{name}
+install --mode 644 ElastixConfig.cmake %{buildroot}%{_libdir}/cmake/%{name}
+install --mode 644 ElastixTargets.cmake %{buildroot}%{_libdir}/cmake/%{name}
+install --mode 644 UseElastix.cmake %{buildroot}%{_libdir}/cmake/%{name}
+install --mode 644 elxLibraryDepends.cmake %{buildroot}%{_libdir}/cmake/%{name}
 
 %files
 %{_libdir}/*.so.*
@@ -96,6 +96,9 @@ install elxLibraryDepends.cmake %{buildroot}%{_libdir}/cmake/%{name}
 %{_libdir}/*.a
 
 %changelog
+* Wed Jun 20 2018 Mark Harfouche <mark.harfouche@gmail.com> - 4.9.0-5
+- Install cmake files without execuction bits
+
 * Wed Jun 20 2018 Mark Harfouche <mark.harfouche@gmail.com> - 4.9.0-4
 - Require version of InsightToolkit that places cmake files in the
   correct location.
