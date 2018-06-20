@@ -1,6 +1,6 @@
 Name:           elastix
 Version:        4.9.0
-Release:        3%{?dist}
+Release:        4%{?dist}
 Summary:        A toolbox for rigid and nonrigid registration of images.
 
 Group:          Applications/Engineering
@@ -8,12 +8,11 @@ License:        ASL 2.0
 URL:            http://elastix.isi.uu.nl/
 Source0:        https://github.com/SuperElastix/%{name}/archive/%{version}.tar.gz#/%{name}-%{version}.tar.gz
 
-BuildRequires:  InsightToolkit-devel >= 4.13.0-6
+BuildRequires:  InsightToolkit-devel >= 4.13.0-8
 BuildRequires:  gtest-devel
 BuildRequires:  fftw3-devel
 BuildRequires:  libminc-devel
 BuildRequires:  gdcm-devel
-BuildRequires:  itk-cmake
 
 %description
 elastix is open source software, based on the well-known [Insight Segmentation
@@ -97,6 +96,10 @@ install elxLibraryDepends.cmake %{buildroot}%{_libdir}/cmake/%{name}
 %{_libdir}/*.a
 
 %changelog
+* Wed Jun 20 2018 Mark Harfouche <mark.harfouche@gmail.com> - 4.9.0-4
+- Require version of InsightToolkit that places cmake files in the
+  correct location.
+
 * Wed Jun 20 2018 Mark Harfouche <mark.harfouche@gmail.com> - 4.9.0-3
 - Now install cmake files
 
